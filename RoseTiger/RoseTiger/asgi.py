@@ -11,6 +11,7 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'RoseTiger.settings')
+profile = os.environ.get('PROJECT_PROFILE', 'develop')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'RoseTiger.settings.{0}'.format(profile))
 
 application = get_asgi_application()
