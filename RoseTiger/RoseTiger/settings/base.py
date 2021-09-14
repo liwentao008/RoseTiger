@@ -28,6 +28,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'RoseTiger',
     'blog',
     'config',
     'comment',
