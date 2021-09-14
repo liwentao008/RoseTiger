@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -53,10 +52,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'RoseTiger.urls'
 
+# THEME = 'default'
+THEME = 'bootstrap'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        # 'DIRS': [BASE_DIR / 'templates']
+        # 'DIRS': [os.path.join(BASE_DIR, 'themes', THEME, 'templates')]
+        'DIRS': [BASE_DIR / 'RoseTiger' / 'themes' / THEME / 'templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -117,3 +121,9 @@ try:
     from .devlop import *
 except ImportError:
     pass
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'RoseTiger' / 'themes' / THEME / "static"]
